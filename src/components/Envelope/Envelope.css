@@ -1,0 +1,113 @@
+.scene{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    overflow:hidden;
+}
+
+.envelope{
+
+    position:relative;
+
+    width:620px;
+
+    height:420px;
+
+}
+
+.envelope>div,
+.envelope>button{
+
+    position:absolute;
+
+    inset:0;
+
+}
+
+.paper-layer{
+
+    z-index:1;
+
+    transform:translateY(95px);
+
+}
+
+.back-layer{
+
+    z-index:2;
+
+}
+
+.front-layer{
+
+    z-index:4;
+
+}
+
+.flap-layer{
+
+    z-index:6;
+
+    transform-origin:50% 8%;
+
+}
+
+.seal-layer{
+
+    z-index:7;
+
+    background:none;
+
+    border:none;
+
+    width:120px;
+
+    height:120px;
+
+    position:absolute;
+
+    left:50%;
+
+    top:145px;
+
+    transform:translateX(-50%);
+
+}
+
+.ambient-light{
+
+    position:absolute;
+
+    inset:-120px;
+
+    background:
+
+    radial-gradient(
+
+    circle,
+
+    rgba(255,255,255,.55),
+
+    transparent 70%
+
+    );
+
+    z-index:0;
+
+}
+
+.click-text{
+
+    margin-top:50px;
+
+    letter-spacing:.35em;
+
+    text-transform:uppercase;
+
+    color:var(--color-text-soft);
+
+    font-size:.85rem;
+
+}

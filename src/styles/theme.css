@@ -1,0 +1,109 @@
+/* ==========================================================
+   ROMANTIC WEBSITE DESIGN SYSTEM
+   ========================================================== */
+
+:root {
+
+    /* ------------------------------------------------------
+       COLORS
+    ------------------------------------------------------ */
+
+    --color-background: #F8F4EE;
+
+    --color-surface: #FFFDF9;
+
+    --color-paper: #FFFDFB;
+
+    --color-envelope-light: #F7EBDD;
+
+    --color-envelope: #E8D8C7;
+
+    --color-envelope-dark: #D4B89A;
+
+    --color-gold: #D4A373;
+
+    --color-gold-light: #F2D39B;
+
+    --color-gold-dark: #B98347;
+
+    --color-wax: #B76E79;
+
+    --color-wax-dark: #8E4A55;
+
+    --color-text: #44342B;
+
+    --color-text-soft: #7A6B62;
+
+    --color-white: #FFFFFF;
+
+    /* ------------------------------------------------------
+       SHADOWS
+    ------------------------------------------------------ */
+
+    --shadow-xs:
+        0 2px 6px rgba(0,0,0,.04);
+
+    --shadow-sm:
+        0 8px 20px rgba(0,0,0,.08);
+
+    --shadow-md:
+        0 18px 45px rgba(0,0,0,.12);
+
+    --shadow-lg:
+        0 30px 80px rgba(0,0,0,.18);
+
+    /* ------------------------------------------------------
+       BORDER RADIUS
+    ------------------------------------------------------ */
+
+    --radius-sm:12px;
+
+    --radius-md:18px;
+
+    --radius-lg:26px;
+
+    --radius-xl:36px;
+
+    --radius-round:999px;
+
+    /* ------------------------------------------------------
+       TRANSITIONS
+    ------------------------------------------------------ */
+
+    --transition-fast:.25s ease;
+
+    --transition-normal:.45s cubic-bezier(.22,.61,.36,1);
+
+    --transition-slow:.8s cubic-bezier(.22,.61,.36,1);
+
+    /* ------------------------------------------------------
+       FONT
+    ------------------------------------------------------ */
+
+    --font-title:
+    "Cormorant Garamond",
+    serif;
+
+    --font-body:
+    "Poppins",
+    sans-serif;
+
+    /* ------------------------------------------------------
+       LETTER SPACING
+    ------------------------------------------------------ */
+
+    --spacing-title:.02em;
+
+    --spacing-body:.04em;
+
+    --spacing-wide:.25em;
+
+    /* ------------------------------------------------------
+       CONTAINER
+    ------------------------------------------------------ */
+
+    --container-width:1280px;
+
+    --content-width:760px;
+
+}

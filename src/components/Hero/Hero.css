@@ -1,0 +1,35 @@
+.hero{
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+
+}
+
+.hero h1{
+    font-size: clamp(3rem, 8vw, 7rem);
+
+    text-align: center;
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+
+}
+
+.hero p{
+    margin-top: 25px;
+
+    font-size: 18px;
+
+    color: var(--muted);
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+}
