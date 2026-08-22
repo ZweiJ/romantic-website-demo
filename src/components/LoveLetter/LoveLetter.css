@@ -1,0 +1,393 @@
+.love-letter {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12rem 2rem;
+
+    background: var(--color-background);
+
+    overflow: hidden;
+
+    isolation: isolate;
+}
+
+.love-letter::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -1px;
+
+    height: 220px;
+
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--color-text)
+    );
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+/* ========================================
+   AMBIENT LIGHT
+======================================== */
+
+.letter-glow {
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter: blur(120px);
+
+    z-index: 0;
+}
+
+.letter-glow-primary {
+    width: 520px;
+    height: 520px;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: var(--color-gold-light);
+
+    opacity: 0.08;
+}
+
+.letter-glow-secondary {
+    width: 300px;
+    height: 300px;
+
+    right: 8%;
+    bottom: 12%;
+
+    background: var(--color-wax);
+
+    opacity: 0.045;
+
+    filter: blur(110px);
+}
+
+/* ========================================
+    CONTAINER
+======================================== */
+
+.letter-container {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+/* ========================================
+    LABEL
+======================================== */
+
+.letter-label {
+    display: block;
+
+    margin-bottom: 3rem;
+
+    font-family: var(--font-body);
+
+    font-size: 1rem;
+    font-weight: 500;
+
+    letter-spacing: 0.3em;
+
+    color: var(--color-gold);
+
+    text-transform: uppercase;
+}
+
+/* ========================================
+    PAPER
+======================================== */
+
+.letter-paper {
+    position: relative;
+
+    width: 100%;
+
+    background:
+        linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.55),
+        transparent 45%
+        ),
+        var(--color-paper);
+
+    border: 1px solid rgba(212, 163, 115, 0.18);
+
+    box-shadow:
+        0 30px 80px rgba(68, 52, 43, 0.12),
+        0 8px 25px rgba(68, 52, 43, 0.06);
+
+    transform-origin: center center;
+}
+
+/* subtle paper edge */
+
+.letter-paper::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 10px;
+
+    border: 1px solid rgba(212, 163, 115, 0.1);
+
+    pointer-events: none;
+}
+
+/* ========================================
+   PAPER CONTENT
+======================================== */
+
+.letter-paper-inner {
+    position: relative;
+
+    padding: clamp(3rem, 7vw, 6rem);
+
+    text-align: left;
+}
+
+/* ========================================
+   GREETING
+======================================== */
+
+.letter-greeting {
+    margin: 0 0 2.5rem;
+
+    font-family: var(--font-title);
+
+    font-size: clamp(2.5rem, 5vw, 4rem);
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    color: var(--color-text);
+}
+
+/* ========================================
+   MESSAGE
+======================================== */
+
+.letter-message {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1.35rem;
+}
+
+.letter-line {
+  margin: 0;
+
+  font-family: var(--font-body);
+
+  font-size: 1rem;
+
+  line-height: 1.9;
+
+  letter-spacing: var(--spacing-body);
+
+  color: var(--color-text-soft);
+}
+
+/* ========================================
+   SIGNATURE
+======================================== */
+
+.letter-signature {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  margin-top: 4rem;
+}
+
+.letter-signature span {
+  margin-bottom: 0.5rem;
+
+  font-family: var(--font-body);
+
+  font-size: 0.75rem;
+
+  letter-spacing: 0.15em;
+
+  color: var(--color-text-soft);
+}
+
+.letter-signature strong {
+  font-family: var(--font-title);
+
+  font-size: 2rem;
+
+  font-weight: 500;
+
+  color: var(--color-text);
+}
+
+/* ==========================================================
+    MOBILE MEMORIES
+========================================================== */
+
+@media (max-width: 768px) {
+  .memories {
+    padding: 7rem 1.5rem 9rem;
+  }
+
+  .memories-header {
+    margin-bottom: 6rem;
+  }
+
+  .memories-label {
+    font-size: 0.85rem;
+    letter-spacing: 0.24em;
+  }
+
+  .memories-header h2 {
+    font-size: clamp(2.9rem, 12vw, 4.8rem);
+    line-height: 0.95;
+  }
+
+  .memories-header p {
+    max-width: 520px;
+
+    margin-top: 2rem;
+
+    font-size: 0.92rem;
+    line-height: 1.8;
+  }
+
+  .memories-gallery {
+    width: 100%;
+  }
+
+  .memory-item {
+    width: 100%;
+
+    margin-bottom: 8rem;
+  }
+
+  .memory-item-left,
+  .memory-item-right {
+    padding: 0;
+  }
+
+  .memory-image-wrapper,
+  .memory-item-left .memory-image-wrapper,
+  .memory-item-right .memory-image-wrapper {
+    width: 100%;
+
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .memory-image {
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    object-fit: cover;
+  }
+
+  .memory-caption,
+  .memory-item-right .memory-caption {
+    width: 92%;
+
+    margin-top: 1.3rem;
+    margin-left: 0;
+    margin-right: 0;
+
+    gap: 0.8rem;
+
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .memory-caption span {
+    font-size: 0.68rem;
+  }
+
+  .memories::before {
+    width: 380px;
+    height: 380px;
+
+    filter: blur(110px);
+  }
+
+  .memories::after {
+    height: 120px;
+  }
+}
+
+
+/* ==========================================================
+    SMALL PHONES
+========================================================== */
+
+@media (max-width: 480px) {
+  .memories {
+    padding: 6rem 1.25rem 8rem;
+  }
+
+  .memories-header {
+    margin-bottom: 5rem;
+  }
+
+  .memories-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+  }
+
+  .memories-header h2 {
+    font-size: clamp(2.6rem, 13vw, 4rem);
+  }
+
+  .memories-header p {
+    font-size: 0.87rem;
+    line-height: 1.75;
+  }
+
+  .memory-item {
+    margin-bottom: 6.5rem;
+  }
+
+  .memory-image-wrapper {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .memory-caption,
+  .memory-item-right .memory-caption {
+    width: 100%;
+
+    font-size: 0.86rem;
+    line-height: 1.7;
+  }
+}

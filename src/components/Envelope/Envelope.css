@@ -15,6 +15,8 @@
 
     height:420px;
 
+    perspective:1200px;
+
 }
 
 .envelope>div,
@@ -28,10 +30,14 @@
 
 .paper-layer{
 
-    z-index:1;
+    position:absolute;
 
-    transform:translateY(95px);
 
+    z-index:4;
+
+    transform:translateY(25px);
+
+    will-change:transform, opacity;
 }
 
 .back-layer{
@@ -47,33 +53,53 @@
 }
 
 .flap-layer{
-
     z-index:6;
-
-    transform-origin:50% 8%;
-
+    position:absolute;
+    inset:0;
+    transform-origin:50%, 0%;
+    transform-style:preserve-3d;
+    will-change:transform;
 }
 
-.seal-layer{
+.seal-layer {
+  position: absolute !important;
 
-    z-index:7;
+  top: 145px !important;
+  left: 50% !important;
 
-    background:none;
+  width: 120px;
+  height: 120px;
 
-    border:none;
+  margin: 0;
+  padding: 0;
+  border: 0;
 
-    width:120px;
+  transform: translateX(-50%) !important;
 
-    height:120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    position:absolute;
+  background: transparent;
 
-    left:50%;
+  cursor: pointer;
 
-    top:145px;
+  z-index: 20;
+}
 
-    transform:translateX(-50%);
+.seal-layer svg {
+  display: block;
+  width: 120px;
+  height: 120px;
+}
 
+.seal-layer:disabled {
+  cursor: default;
+}
+
+.seal-layer:focus-visible {
+  outline: 2px solid rgba(180, 120, 100, 0.5);
+  outline-offset: 6px;
 }
 
 .ambient-light{
@@ -110,4 +136,57 @@
 
     font-size:.85rem;
 
+}
+
+/* ==========================================================
+   MOBILE ENVELOPE
+   Scale the entire envelope as one composition
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .envelope-stage {
+        width: 100%;
+        min-height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        overflow: hidden;
+    }
+
+    .envelope {
+        width: 620px;
+        height: 420px;
+
+        flex-shrink: 0;
+
+        transform: scale(0.58);
+        transform-origin: center center;
+    }
+}
+
+
+/* ==========================================================
+   SMALL PHONES
+========================================================== */
+
+@media (max-width: 480px) {
+
+    .envelope {
+        transform: scale(0.52);
+    }
+}
+
+
+/* ==========================================================
+   VERY SMALL PHONES
+========================================================== */
+
+@media (max-width: 380px) {
+
+    .envelope {
+        transform: scale(0.46);
+    }
 }
