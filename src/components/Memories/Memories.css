@@ -2,6 +2,7 @@
     position: relative;
 
     width: 100%;
+
     min-height: 100vh;
 
     padding: 12rem 2rem;
@@ -13,8 +14,9 @@
     isolation: isolate;
 }
 
+
 /* ========================================
-    HEADER
+   HEADER
 ======================================== */
 
 .memories-header {
@@ -37,6 +39,7 @@
     font-family: var(--font-body);
 
     font-size: 1rem;
+
     font-weight: 500;
 
     letter-spacing: 0.3em;
@@ -78,8 +81,9 @@
     color: var(--color-text-soft);
 }
 
+
 /* ========================================
-    GALLERY
+   GALLERY
 ======================================== */
 
 .memories-gallery {
@@ -87,6 +91,7 @@
 
     margin: 0 auto;
 }
+
 
 /* ========================================
    MEMORY ITEM
@@ -108,8 +113,9 @@
     padding-left: 18%;
 }
 
+
 /* ========================================
-    IMAGE
+   IMAGE
 ======================================== */
 
 .memory-image-wrapper {
@@ -122,6 +128,12 @@
     background: var(--color-envelope-light);
 
     box-shadow: var(--shadow-md);
+
+    cursor: default;
+
+    transition:
+        transform 0.8s cubic-bezier(.22, .61, .36, 1),
+        box-shadow 0.8s cubic-bezier(.22, .61, .36, 1);
 }
 
 .memory-item-left .memory-image-wrapper {
@@ -136,6 +148,7 @@
     display: block;
 
     width: 100%;
+
     height: auto;
 
     aspect-ratio: 4 / 3;
@@ -145,20 +158,41 @@
     transform: scale(1.02);
 
     transition:
-        transform 1.2s cubic-bezier(.22,.61,.36,1);
+        transform 1.2s cubic-bezier(.22, .61, .36, 1),
+        filter 1.2s cubic-bezier(.22, .61, .36, 1);
 }
 
-.memory-image-wrapper:hover .memory-image {
-    transform: scale(1.06);
-}
 
 /* ========================================
-    CAPTION
+   PREMIUM IMAGE EDGE
+======================================== */
+
+.memory-image-wrapper::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border: 1px solid transparent;
+
+    pointer-events: none;
+
+    transition:
+        border-color var(--motion-normal),
+        box-shadow var(--motion-normal);
+}
+
+
+/* ========================================
+   CAPTION
 ======================================== */
 
 .memory-caption {
     display: flex;
+
     align-items: baseline;
+
     gap: 1rem;
 
     width: min(500px, 80%);
@@ -174,6 +208,11 @@
     letter-spacing: var(--spacing-body);
 
     color: var(--color-text-soft);
+
+    transition:
+        transform var(--motion-normal),
+        color var(--motion-normal),
+        opacity var(--motion-normal);
 }
 
 .memory-item-right .memory-caption {
@@ -190,10 +229,57 @@
     color: var(--color-gold);
 
     opacity: 0.75;
+
+    transition:
+        opacity var(--motion-normal);
 }
 
+
 /* ========================================
-    AMBIENT LIGHT
+   PREMIUM DESKTOP HOVER
+======================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .memory-item:hover .memory-image-wrapper {
+        transform: translateY(-8px);
+
+        box-shadow:
+            0 35px 80px rgba(68, 52, 43, 0.16),
+            0 12px 28px rgba(68, 52, 43, 0.08);
+    }
+
+    .memory-item:hover .memory-image {
+        transform: scale(1.065);
+
+        filter:
+            saturate(1.03)
+            contrast(1.015)
+            brightness(1.015);
+    }
+
+    .memory-item:hover .memory-caption {
+        transform: translateY(-4px);
+
+        color: var(--color-text);
+    }
+
+    .memory-item:hover .memory-caption span {
+        opacity: 1;
+    }
+
+    .memory-item:hover .memory-image-wrapper::after {
+        border-color: rgba(212, 163, 115, 0.22);
+
+        box-shadow:
+            inset 0 0 0 1px
+            rgba(255, 255, 255, 0.12);
+    }
+}
+
+
+/* ========================================
+   AMBIENT LIGHT
 ======================================== */
 
 .memories::after {
@@ -202,7 +288,9 @@
     position: absolute;
 
     left: 0;
+
     right: 0;
+
     bottom: -1px;
 
     height: 180px;
@@ -224,9 +312,11 @@
     position: absolute;
 
     width: 500px;
+
     height: 500px;
 
     top: 35%;
+
     left: 50%;
 
     transform: translate(-50%, -50%);
@@ -244,11 +334,13 @@
     z-index: 0;
 }
 
+
 /* ==========================================================
-    MOBILE MEMORIES
+   MOBILE MEMORIES
 ========================================================== */
 
 @media (max-width: 768px) {
+
     .memories {
         padding: 7rem 1.5rem 9rem;
     }
@@ -259,11 +351,13 @@
 
     .memories-label {
         font-size: 0.85rem;
+
         letter-spacing: 0.24em;
     }
 
     .memories-header h2 {
         font-size: clamp(2.9rem, 12vw, 4.8rem);
+
         line-height: 0.95;
     }
 
@@ -273,6 +367,7 @@
         margin-top: 2rem;
 
         font-size: 0.92rem;
+
         line-height: 1.8;
     }
 
@@ -297,6 +392,7 @@
         width: 100%;
 
         margin-left: 0;
+
         margin-right: 0;
     }
 
@@ -313,12 +409,15 @@
         width: 92%;
 
         margin-top: 1.3rem;
+
         margin-left: 0;
+
         margin-right: 0;
 
         gap: 0.8rem;
 
         font-size: 0.9rem;
+
         line-height: 1.75;
     }
 
@@ -328,6 +427,7 @@
 
     .memories::before {
         width: 380px;
+
         height: 380px;
 
         filter: blur(110px);
@@ -340,10 +440,11 @@
 
 
 /* ==========================================================
-    SMALL PHONES
+   SMALL PHONES
 ========================================================== */
 
 @media (max-width: 480px) {
+
     .memories {
         padding: 6rem 1.25rem 8rem;
     }
@@ -354,6 +455,7 @@
 
     .memories-label {
         font-size: 0.78rem;
+
         letter-spacing: 0.2em;
     }
 
@@ -363,6 +465,7 @@
 
     .memories-header p {
         font-size: 0.87rem;
+
         line-height: 1.75;
     }
 
@@ -379,6 +482,7 @@
         width: 100%;
 
         font-size: 0.86rem;
+
         line-height: 1.7;
     }
 }

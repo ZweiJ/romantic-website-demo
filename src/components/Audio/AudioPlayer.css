@@ -1,0 +1,92 @@
+.audio-control {
+  position: fixed;
+
+  right: 24px;
+  bottom: 24px;
+
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.65rem;
+
+  padding: 0.8rem 1rem;
+
+  border: 1px solid
+    rgba(212, 163, 115, 0.25);
+
+  border-radius: var(--radius-round);
+
+  background:
+    rgba(255, 253, 249, 0.72);
+
+  color: var(--color-text);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 10px 35px
+    rgba(68, 52, 43, 0.08);
+
+  font-family: var(--font-body);
+
+  cursor: pointer;
+
+  transition:
+    transform var(--motion-fast),
+    background var(--motion-fast),
+    border-color var(--motion-fast),
+    box-shadow var(--motion-fast);
+}
+
+.audio-control:hover {
+  transform: translateY(-3px);
+
+  background:
+    rgba(255, 253, 249, 0.9);
+
+  border-color:
+    rgba(212, 163, 115, 0.5);
+
+  box-shadow:
+    0 14px 40px
+    rgba(68, 52, 43, 0.12);
+}
+
+.audio-icon {
+  font-size: 1rem;
+
+  color: var(--color-wax);
+}
+
+.audio-label {
+  font-size: 0.72rem;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .audio-control {
+    right: 16px;
+    bottom: 16px;
+
+    padding: 0.75rem;
+
+    width: 44px;
+    height: 44px;
+
+    justify-content: center;
+  }
+
+  .audio-label {
+    display: none;
+  }
+
+  .audio-icon {
+    font-size: 1.05rem;
+  }
+}

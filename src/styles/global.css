@@ -158,28 +158,6 @@ body::after {
 
   z-index: 1;
 }
-
-#root::before {
-  content: "";
-
-  position: fixed;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse at center,
-      transparent 45%,
-      rgba(68, 52, 43, 0.035) 100%
-    );
-
-  z-index: 999;
-
-  opacity: 0.7;
-}
-
 /* ==========================================================
    IMAGES
 ========================================================== */
@@ -229,7 +207,7 @@ section {
 ::selection {
   background: var(--color-gold);
 
-  color: white;
+  color:var(--color-white);
 }
 
 /* ==========================================================
@@ -250,5 +228,99 @@ section {
 
     right: -200px;
     bottom: 10%;
+  }
+}
+
+/* ==========================================================
+   FILM GRAIN / CINEMATIC TEXTURE
+========================================================== */
+
+#root::after {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 9999;
+
+  opacity: 0.035;
+
+  background-image:
+    repeating-radial-gradient(
+      circle at 0 0,
+      rgba(68, 52, 43, 0.22) 0,
+      rgba(68, 52, 43, 0.22) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+
+  background-size: 4px 4px;
+
+  mix-blend-mode: multiply;
+}
+
+/* ==========================================================
+   SOFT CINEMATIC VIGNETTE
+========================================================== */
+
+#root::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 9998;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 48%,
+      rgba(68, 52, 43, 0.035) 78%,
+      rgba(68, 52, 43, 0.07) 100%
+    );
+}
+
+@media (max-width: 600px) {
+  #root::after {
+    opacity: 0.025;
+  }
+
+  #root::before {
+    background:
+      radial-gradient(
+        ellipse at center,
+        transparent 55%,
+        rgba(68, 52, 43, 0.025) 82%,
+        rgba(68, 52, 43, 0.05) 100%
+      );
+  }
+}
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  body::before,
+  body::after {
+    animation: none !important;
   }
 }

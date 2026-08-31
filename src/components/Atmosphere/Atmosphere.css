@@ -1,0 +1,274 @@
+.atmosphere {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+
+/* ==========================================================
+   FLOATING DUST / WARM PARTICLES
+========================================================== */
+
+.atmosphere-particles {
+  position: absolute;
+
+  inset: 0;
+}
+
+.atmosphere-particle {
+  position: absolute;
+
+  width: 3px;
+
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: var(--color-gold-light);
+
+  opacity: 0;
+
+  box-shadow:
+    0 0 8px rgba(242, 211, 155, 0.35);
+
+  animation:
+    atmosphereFloat
+    15s
+    ease-in-out
+    infinite;
+}
+
+@keyframes atmosphereFloat {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate3d(0, 20px, 0)
+      scale(0.8);
+  }
+
+  18% {
+    opacity: 0.32;
+  }
+
+  55% {
+    opacity: 0.16;
+
+    transform:
+      translate3d(12px, -70px, 0)
+      scale(1);
+  }
+
+  82% {
+    opacity: 0.28;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate3d(-8px, -145px, 0)
+      scale(0.85);
+  }
+}
+
+
+/* ==========================================================
+   GENTLE RAIN
+========================================================== */
+
+.atmosphere-rain {
+  position: absolute;
+
+  inset: -15% 0 0;
+
+  opacity: 0.26;
+}
+
+.atmosphere-rain-drop {
+  position: absolute;
+
+  top: -120px;
+
+  width: 1px;
+
+  height: 65px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255, 255, 255, 0.22),
+      transparent
+    );
+
+  transform: rotate(8deg);
+
+  animation:
+    atmosphereRain
+    3.2s
+    linear
+    infinite;
+}
+
+@keyframes atmosphereRain {
+  from {
+    transform:
+      translate3d(0, -100px, 0)
+      rotate(8deg);
+
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.55;
+  }
+
+  85% {
+    opacity: 0.25;
+  }
+
+  to {
+    transform:
+      translate3d(-45px, 120vh, 0)
+      rotate(8deg);
+
+    opacity: 0;
+  }
+}
+
+
+/* ==========================================================
+   FINAL SURPRISE LIGHT DRIFT
+========================================================== */
+
+.atmosphere-light-drift {
+  position: absolute;
+
+  width: 420px;
+
+  height: 420px;
+
+  left: 50%;
+
+  bottom: -260px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(242, 211, 155, 0.12),
+      rgba(212, 163, 115, 0.04) 38%,
+      transparent 72%
+    );
+
+  filter: blur(70px);
+
+  opacity: 0.8;
+
+  animation:
+    atmosphereLightDrift
+    10s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+@keyframes atmosphereLightDrift {
+  from {
+    transform:
+      translateX(-50%)
+      translateY(0)
+      scale(0.92);
+  }
+
+  to {
+    transform:
+      translateX(-50%)
+      translateY(-45px)
+      scale(1.08);
+  }
+}
+
+
+/* ==========================================================
+   VARIANTS
+========================================================== */
+
+.atmosphere-dust .atmosphere-particle {
+  opacity: 0;
+}
+
+.atmosphere-final .atmosphere-particle {
+  width: 3px;
+
+  height: 3px;
+
+  box-shadow:
+    0 0 10px rgba(242, 211, 155, 0.48);
+}
+
+.atmosphere-final .atmosphere-rain {
+  opacity: 0.18;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+
+  .atmosphere-particle:nth-child(n + 7) {
+    display: none;
+  }
+
+  .atmosphere-rain-drop:nth-child(n + 8) {
+    display: none;
+  }
+
+  .atmosphere-rain {
+    opacity: 0.18;
+  }
+
+  .atmosphere-final .atmosphere-rain {
+    opacity: 0.12;
+  }
+
+  .atmosphere-light-drift {
+    width: 320px;
+
+    height: 320px;
+  }
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .atmosphere-particle,
+  .atmosphere-rain-drop,
+  .atmosphere-light-drift {
+    animation: none !important;
+  }
+
+  .atmosphere-rain {
+    display: none;
+  }
+
+  .atmosphere-particle {
+    opacity: 0.08;
+  }
+}

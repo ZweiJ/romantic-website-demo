@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">AS Romantic Monogram Favicon</title>
+  <desc id="desc">A circular cream and gold emblem with intertwined A and S initials and a small rose heart.</desc>
+
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6D79A"/>
+      <stop offset="45%" stop-color="#D4A373"/>
+      <stop offset="100%" stop-color="#B98347"/>
+    </linearGradient>
+
+    <linearGradient id="goldSoft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF0C8"/>
+      <stop offset="100%" stop-color="#D4A373"/>
+    </linearGradient>
+
+    <linearGradient id="rose" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D98C98"/>
+      <stop offset="100%" stop-color="#B76E79"/>
+    </linearGradient>
+
+    <radialGradient id="paper" cx="50%" cy="42%" r="70%">
+      <stop offset="0%" stop-color="#FFFDFB"/>
+      <stop offset="100%" stop-color="#F8F4EE"/>
+    </radialGradient>
+
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#6B4A35" flood-opacity=".18"/>
+    </filter>
+  </defs>
+
+  <!-- outer badge -->
+  <circle cx="256" cy="256" r="236" fill="url(#paper)" stroke="url(#gold)" stroke-width="18" filter="url(#shadow)"/>
+  <circle cx="256" cy="256" r="211" fill="none" stroke="#E8C48A" stroke-width="4"/>
+  <circle cx="256" cy="256" r="192" fill="none" stroke="#D4A373" stroke-width="2" opacity=".7"/>
+
+  <!-- heart -->
+  <path d="M256 112
+           C240 88, 205 91, 198 116
+           C188 151, 222 171, 256 199
+           C290 171, 324 151, 314 116
+           C307 91, 272 88, 256 112Z"
+        fill="url(#rose)" stroke="#8E4A55" stroke-width="5"/>
+
+  <!-- subtle ornaments -->
+  <path d="M132 173 C105 197, 93 226, 89 255" fill="none" stroke="#C99657" stroke-width="5" stroke-linecap="round"/>
+  <path d="M380 173 C407 197, 419 226, 423 255" fill="none" stroke="#C99657" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="104" cy="292" r="7" fill="#B76E79"/>
+  <circle cx="408" cy="292" r="7" fill="#B76E79"/>
+
+  <!-- monogram -->
+  <text x="203" y="337"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="242"
+        font-style="italic"
+        font-weight="700"
+        text-anchor="middle"
+        fill="url(#goldSoft)"
+        stroke="#9C6938"
+        stroke-width="3"
+        paint-order="stroke fill">A</text>
+
+  <text x="316" y="348"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="236"
+        font-style="italic"
+        font-weight="700"
+        text-anchor="middle"
+        fill="url(#gold)"
+        stroke="#8B5A31"
+        stroke-width="3"
+        paint-order="stroke fill">S</text>
+
+  <!-- small flourish -->
+  <path d="M171 377 C224 405, 288 407, 345 378"
+        fill="none" stroke="#D4A373" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="256" cy="402" r="6" fill="#B76E79"/>
+</svg>

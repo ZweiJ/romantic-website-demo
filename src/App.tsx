@@ -7,12 +7,15 @@ import Timeline from "./components/Timeline/Timeline";
 import Memories from "./components/Memories/Memories";
 import LoveLetter from "./components/LoveLetter/LoveLetter";
 import FinalSurprise from "./components/FinalSurprise/FinalSurprise";
+import AudioPlayer from "./components/Audio/AudioPlayer";
 
 export default function App() {
   const [opened, setOpened] = useState(false);
 
   return (
     <main>
+      <AudioPlayer play={opened}/>
+
       {!opened && (
         <Envelope
           onOpen={() => setOpened(true)}

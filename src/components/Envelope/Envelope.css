@@ -29,15 +29,14 @@
 }
 
 .paper-layer{
+    position: absolute;
+    left: 50%;
+    margin-left: 7%; /* half of your 520px paper width */
 
-    position:absolute;
+    z-index: 4;
+    transform: translateY(25px);
 
-
-    z-index:4;
-
-    transform:translateY(25px);
-
-    will-change:transform, opacity;
+    will-change: transform, opacity;
 }
 
 .back-layer{
@@ -76,21 +75,39 @@
 
   transform: translateX(-50%) !important;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  background: transparent;
+    background: transparent;
 
-  cursor: pointer;
+    cursor: pointer;
 
-  z-index: 20;
+    z-index: 20;
+
+    transition:
+        filter 0.6s cubic-bezier(.22,.61,.36,1),
+        box-shadow 0.6s cubic-bezier(.22,.61,.36,1);
+}
+
+.seal-layer:hover {
+  filter: brightness(1.05);
 }
 
 .seal-layer svg {
   display: block;
   width: 120px;
   height: 120px;
+}
+
+.seal-layer:hover svg {
+  filter:
+    drop-shadow(0 8px 18px rgba(142, 74, 85, 0.22));
+}
+
+
+.seal-layer:active {
+  filter: brightness(0.98);
 }
 
 .seal-layer:disabled {

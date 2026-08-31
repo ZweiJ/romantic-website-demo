@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import "./LoveLetter.css";
+import Atmosphere from "../Atmosphere/Atmosphere";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -101,6 +102,9 @@ export default function LoveLetter() {
         ref={letterRef}
         className="love-letter"
         >
+
+        <Atmosphere variant="dust"/>
+
         <div className="letter-glow letter-glow-primary" />
         <div className="letter-glow letter-glow-secondary" />
 
@@ -137,6 +141,10 @@ export default function LoveLetter() {
                 <p className="letter-line">
                     laki-laki mu ini sedang berusaha.
                 </p>
+                </div>
+
+                <div className="letter-ornament">
+                        ✦
                 </div>
 
                 <div className="letter-signature">

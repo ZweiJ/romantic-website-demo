@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import "./FinalSurprise.css";
+import Atmosphere from "../Atmosphere/Atmosphere";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -94,6 +95,9 @@ export default function FinalSurprise() {
         revealed ? "final-surprise-revealed" : ""
       }`}
     >
+
+      <Atmosphere variant="final"/>
+
       <div className="final-orb final-orb-primary" />
       <div className="final-orb final-orb-secondary" />
 

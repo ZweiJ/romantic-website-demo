@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import "./Memories.css";
+import Atmosphere from "../Atmosphere/Atmosphere";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -89,6 +90,8 @@ export default function Memories() {
         ref={memoriesRef}
         className="memories"
         >
+        <Atmosphere variant="dust"/>
+        
         <div className="memories-header">
             <span className="memories-label">
             MEMORIES
